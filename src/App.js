@@ -10,7 +10,10 @@ const App = () => {
   });
 
   const inputNameHandler = e => {
-    setState({ ...state, [e.target.name]: e.target.value });
+    setState({
+      ...state,
+      [e.target.name]: e.target.value
+    });
   }
 
   const update = () => {
