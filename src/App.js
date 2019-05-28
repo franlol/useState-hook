@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InputField from './components/InputField/InputField';
+import InputInfo from './components/InputInfo/InputInfo';
 
 const App = () => {
 
@@ -43,8 +44,13 @@ const App = () => {
       <hr />
 
       <InputField value={state.nameInput} name={"nameInput"} type={"text"} handler={inputNameHandler}>Name: </InputField>
+      <InputInfo>{`Name is ${state.nameInput}`}</InputInfo>
+
       <InputField value={state.surnameInput} name={"surnameInput"} type={"text"} handler={inputNameHandler}>Surname: </InputField>
+      <InputInfo>{`Surname is ${state.surnameInput}`}</InputInfo>
+
       <InputField value={state.pwdInput} name={"pwdInput"} type={"password"} handler={inputNameHandler}>Password: </InputField>
+      <InputInfo>{`Password is ${state.pwdInput.replace(/./g, '*')}`}</InputInfo>
 
       <button onClick={checkState}>Check</button>
       <button onClick={update}>Update</button>
