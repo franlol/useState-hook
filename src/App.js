@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import InputField from './components/InputField/InputField';
 
 const App = () => {
+
   const [state, setState] = useState({
     count: 0,
     nameInput: '',
@@ -9,11 +10,18 @@ const App = () => {
     pwdInput: '',
   });
 
-  const inputNameHandler = e => {
+  const inputNameHandler = event => {
     setState({
       ...state,
-      [e.target.name]: e.target.value
+      [event.target.name]: event.target.value
     });
+  }
+
+  const increment = () => {
+    setState({
+      ...state,
+      count: state.count + 1,
+    })
   }
 
   const update = () => {
@@ -23,10 +31,14 @@ const App = () => {
     });
   }
 
+  const checkState = () => {
+    console.log(state)
+  }
+
   return (
     <div className="App">
-      <p>App component: {state.count}</p>
-      <button onClick={() => setState({ ...state, count: state.count + 1 })}>Add</button>
+      <p>Counter: {state.count}</p>
+      <button onClick={increment}>Add</button>
 
       <hr />
 
@@ -34,10 +46,11 @@ const App = () => {
       <InputField value={state.surnameInput} name={"surnameInput"} type={"text"} handler={inputNameHandler}>Surname: </InputField>
       <InputField value={state.pwdInput} name={"pwdInput"} type={"password"} handler={inputNameHandler}>Password: </InputField>
 
-      <button onClick={() => console.log(state)}>Check</button>
+      <button onClick={checkState}>Check</button>
       <button onClick={update}>Update</button>
     </div>
   );
+
 }
 
 export default App;
