@@ -22,7 +22,7 @@ const App = () => {
     setState({
       ...state,
       count: state.count + 1,
-    })
+    });
   }
 
   const update = () => {
